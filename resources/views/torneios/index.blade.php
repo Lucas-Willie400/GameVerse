@@ -44,13 +44,15 @@
 
                         <td>{{ $torneio->data_evento }}</td>
 
-                        <td>
+                        <td class="space-x-3">
 
-                            <a href="{{ route('torneios.edit', $torneio->id) }}" class="bg-yellow-500 px-3 py-1 rounded">
+                            <a href="{{ route('torneios.edit', $torneio->id) }}"
+                                class="bg-yellow-500 hover:bg-yellow-600 px-4 py-2 rounded-lg inline-block">
                                 Editar
                             </a>
 
-                            <form action="{{ route('torneios.destroy', $torneio->id) }}" method="POST" class="inline gap-4">
+                            <form action="{{ route('torneios.destroy', $torneio->id) }}" method="POST"
+                                class="inline-block ml-3">
 
 
                                 @csrf

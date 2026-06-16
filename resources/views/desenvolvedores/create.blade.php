@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="glass rounded-2xl overflow-hidden">
+    <div class="glass rounded-2xl overflow-hidden p-8">
 
         <h2 class="text-3xl font-bold mb-6">
             Novo Desenvolvedor

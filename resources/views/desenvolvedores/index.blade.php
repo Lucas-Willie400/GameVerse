@@ -34,7 +34,7 @@
 
                 @foreach($desenvolvedores as $dev)
 
-                    <tr class="border-b border-gray-800">
+                    <tr class="border-b border-gray-800 hover:bg-purple-900/50 transition-colors duration-200">
 
                         <td class="p-4">{{ $dev->id }}</td>
 

@@ -47,7 +47,7 @@
                         <td class="space-x-3">
 
                             <a href="{{ route('torneios.edit', $torneio->id) }}"
-                                class="bg-yellow-500 hover:bg-yellow-600 px-4 py-2 rounded-lg inline-block">
+                                class="bg-purple-500 hover:bg-purple-600 px-4 py-2 rounded-lg inline-block">
                                 Editar
                             </a>
 
@@ -58,7 +58,7 @@
                                 @csrf
                                 @method('DELETE')
 
-                                <button class="bg-red-600 px-3 py-1 rounded">
+                                <button class="bg-gray-500 px-3 py-1 rounded hover:bg-gray-600">
                                     Excluir
                                 </button>
 

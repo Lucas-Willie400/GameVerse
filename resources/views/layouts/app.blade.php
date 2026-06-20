@@ -91,7 +91,7 @@
             <form action="/logout" method="POST" class="mt-10">
                 @csrf
 
-                <button class="w-full bg-red-600 hover:bg-red-700 p-3 rounded-xl">
+                <button class="w-full bg-purple-600 hover:bg-purple-700 p-3 rounded-xl">
                     Sair
                 </button>
 

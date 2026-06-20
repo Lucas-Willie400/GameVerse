@@ -47,7 +47,7 @@
                         <td class="space-x-3">
 
                             <a href="{{ route('jogos.edit', $jogo->id) }}"
-                                class="bg-yellow-500 hover:bg-yellow-600 px-4 py-2 rounded-lg inline-block">
+                                class="bg-purple-500 hover:bg-purple-600 px-4 py-2 rounded-lg inline-block">
                                 Editar
                             </a>
 
@@ -56,7 +56,7 @@
                                 @csrf
                                 @method('DELETE')
 
-                                <button class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg">
+                                <button class="bg-gray-600 hover:bg-gray-700 px-4 py-2 rounded-lg">
                                     Excluir
                                 </button>
 

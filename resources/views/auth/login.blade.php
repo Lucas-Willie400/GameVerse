@@ -119,7 +119,7 @@
 
                             <i class="fa-solid fa-envelope absolute left-4 top-4 text-purple-400"></i>
 
-                            <input type="email" name="email" placeholder="admin@gameverse.com"
+                            <input type="email" name="email" placeholder="admin@admin.com"
                                 class="w-full bg-slate-900 text-white p-4 pl-12 rounded-xl mt-2 border border-purple-900 focus:outline-none focus:border-purple-500">
 
                         </div>

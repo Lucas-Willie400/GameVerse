@@ -170,7 +170,7 @@
 
             <thead>
 
-                <tr class="border-b border-purple-500/20">
+                <tr class="border-b border-purple-500/20 bg-purple-800">
 
                     <th class="p-5 text-left">#</th>
 

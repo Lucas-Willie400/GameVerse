@@ -27,7 +27,7 @@ class JogoController extends Controller
             'preco' => $request->preco,
         ]);
 
-        return redirect()->route('jogos.index');
+        return redirect()->route('jogos.index')->with('created', 'Jogo criado com sucesso!');
     }
 
     public function edit(Jogo $jogo)
@@ -43,13 +43,13 @@ class JogoController extends Controller
             'preco' => $request->preco,
         ]);
 
-        return redirect()->route('jogos.index');
+        return redirect()->route('jogos.index')->with('updated', 'Jogo atualizado com sucesso');
     }
 
     public function destroy(Jogo $jogo)
     {
         $jogo->delete();
 
-        return redirect()->route('jogos.index');
-    }
+        return redirect()->route('jogos.index')->with('success', 'Jogo deletado com sucesso!');
 }
+    }

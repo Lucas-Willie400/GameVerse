@@ -4,7 +4,19 @@
 
 <div class="max-w-7xl mx-auto">
 
-    <!-- HEADER -->
+    @if ($errors->any())
+        <div class="glass border border-red-500/30 bg-red-950/20 text-red-400 p-5 rounded-2xl mb-6 shadow-lg shadow-red-500/5">
+            <div class="flex items-center gap-3 mb-2 font-bold">
+                <i class="fa-solid fa-triangle-exclamation text-xl"></i>
+                <span>Por favor, corrija os erros abaixo:</span>
+            </div>
+            <ul class="list-disc list-inside space-y-1 text-sm text-gray-300 pl-2">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
     <div class="flex flex-col lg:flex-row justify-between items-center gap-6 mb-8">
 
@@ -32,14 +44,10 @@
 
     <div class="grid lg:grid-cols-3 gap-8">
 
-        <!-- FORMULÁRIO -->
-
         <div class="lg:col-span-2">
 
             <div
                 class="glass rounded-3xl p-8 relative overflow-hidden">
-
-                <!-- brilho -->
 
                 <div
                     class="absolute top-0 right-0 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl">
@@ -53,8 +61,6 @@
                     @csrf
 
                     <div class="space-y-6">
-
-                        <!-- NOME -->
 
                         <div>
 
@@ -75,16 +81,14 @@
                                     id="nome"
                                     type="text"
                                     name="nome"
+                                    value="{{ old('nome') }}"
                                     required
                                     placeholder="Ex: Cyber Runner"
-
                                     class="w-full bg-slate-900/70 border border-purple-900/40 rounded-2xl p-4 pl-14 text-white focus:border-purple-500 focus:outline-none">
 
                             </div>
 
                         </div>
-
-                        <!-- GÊNERO E PREÇO -->
 
                         <div
                             class="grid md:grid-cols-2 gap-6">
@@ -101,21 +105,20 @@
                                 <select
                                     id="genero"
                                     name="genero"
-
                                     class="w-full bg-slate-900/70 border border-purple-900/40 rounded-2xl p-4 text-white focus:border-purple-500 focus:outline-none">
 
                                     <option value="">
                                         Selecione
                                     </option>
 
-                                    <option>Aventura</option>
-                                    <option>RPG</option>
-                                    <option>RPG de Mundo Aberto</option>
-                                    <option>Corrida</option>
-                                    <option>Sobrevivência</option>
-                                    <option>Terror de Mascote</option>
-                                    <option>Ação</option>
-                                    <option>Estratégia</option>
+                                    <option {{ old('genero') == 'Aventura' ? 'selected' : '' }}>Aventura</option>
+                                    <option {{ old('genero') == 'RPG' ? 'selected' : '' }}>RPG</option>
+                                    <option {{ old('genero') == 'RPG de Mundo Aberto' ? 'selected' : '' }}>RPG de Mundo Aberto</option>
+                                    <option {{ old('genero') == 'Corrida' ? 'selected' : '' }}>Corrida</option>
+                                    <option {{ old('genero') == 'Sobrevivência' ? 'selected' : '' }}>Sobrevivência</option>
+                                    <option {{ old('genero') == 'Terror de Mascote' ? 'selected' : '' }}>Terror de Mascote</option>
+                                    <option {{ old('genero') == 'Ação' ? 'selected' : '' }}>Ação</option>
+                                    <option {{ old('genero') == 'Estratégia' ? 'selected' : '' }}>Estratégia</option>
 
                                 </select>
 
@@ -144,7 +147,7 @@
                                         type="number"
                                         step="0.01"
                                         name="preco"
-
+                                        value="{{ old('preco') }}"
                                         class="w-full bg-slate-900/70 border border-purple-900/40 rounded-2xl p-4 pl-14 text-white focus:border-purple-500 focus:outline-none">
 
                                 </div>
@@ -152,8 +155,6 @@
                             </div>
 
                         </div>
-
-                        <!-- DESCRIÇÃO -->
 
                         <div>
 
@@ -165,20 +166,18 @@
                             </label>
 
                             <textarea
+                                name="descricao"
                                 rows="5"
                                 placeholder="Descreva o jogo..."
-                                class="w-full bg-slate-900/70 border border-purple-900/40 rounded-2xl p-4 text-white focus:border-purple-500 focus:outline-none"></textarea>
+                                class="w-full bg-slate-900/70 border border-purple-900/40 rounded-2xl p-4 text-white focus:border-purple-500 focus:outline-none">{{ old('descricao') }}</textarea>
 
                         </div>
-
-                        <!-- BOTÕES -->
 
                         <div
                             class="flex flex-wrap gap-4 pt-4">
 
                             <button
                                 type="submit"
-
                                 class="bg-gradient-to- from-purple-600 to-fuchsia-600 px-8 py-4 rounded-2xl font-semibold hover:scale-105 transition-all duration-300 shadow-lg shadow-purple-500/30">
 
                                 <i class="fa-solid fa-floppy-disk mr-2"></i>
@@ -189,7 +188,6 @@
 
                             <button
                                 type="reset"
-
                                 class="glass px-8 py-4 rounded-2xl hover:bg-red-500/10 transition">
 
                                 Limpar
@@ -205,8 +203,6 @@
             </div>
 
         </div>
-
-        <!-- SIDEBAR DE PREVIEW -->
 
         <div>
 
@@ -274,7 +270,7 @@
                             Catálogo
                         </p>
 
-                        <p>
+                        <p class="text-grid">
                             GameVerse Studios
                         </p>
 
@@ -300,6 +296,16 @@ document.getElementById('genero');
 
 const preco =
 document.getElementById('preco');
+
+// Atualização inicial baseada nos valores antigos do Laravel (old)
+document.addEventListener('DOMContentLoaded', () => {
+    if(nome.value) document.getElementById('previewNome').innerText = nome.value;
+    if(genero.value) document.getElementById('previewGenero').innerText = genero.value;
+    if(preco.value) {
+        let valor = parseFloat(preco.value || 0);
+        document.getElementById('previewPreco').innerText = 'R$ ' + valor.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+    }
+});
 
 nome.addEventListener('input', () => {
 

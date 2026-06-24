@@ -2,7 +2,26 @@
 
 @section('content')
 
-<!-- CABEÇALHO -->
+@if(session('success'))
+    <div class="glass border border-green-500/30 bg-green-950/20 text-green-400 p-4 rounded-2xl mb-6 flex items-center gap-3 shadow-lg shadow-green-500/5 transition-all duration-300">
+        <i class="fa-solid fa-circle-check text-xl"></i>
+        <span class="font-medium">{{ session('success') }}</span>
+    </div>
+@endif
+
+@if(session('created'))
+    <div class="glass border border-purple-500/30 bg-purple-950/20 text-purple-300 p-4 rounded-2xl mb-6 flex items-center gap-3 shadow-lg shadow-purple-500/5 transition-all duration-300">
+        <i class="fa-solid fa-square-plus text-xl"></i>
+        <span class="font-medium">{{ session('created') }}</span>
+    </div>
+@endif
+
+@if(session('updated'))
+    <div class="glass border border-blue-500/30 bg-blue-950/20 text-blue-400 p-4 rounded-2xl mb-6 flex items-center gap-3 shadow-lg shadow-blue-500/5 transition-all duration-300">
+        <i class="fa-solid fa-pen-to-square text-xl"></i>
+        <span class="font-medium">{{ session('updated') }}</span>
+    </div>
+@endif
 
 <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-8">
 
@@ -27,8 +46,6 @@
     </a>
 
 </div>
-
-<!-- CARDS -->
 
 <div class="grid md:grid-cols-3 gap-6 mb-8">
 
@@ -112,8 +129,6 @@
 
 </div>
 
-<!-- PESQUISA -->
-
 <div class="glass rounded-3xl p-5 mb-6">
 
     <div class="flex items-center gap-3">
@@ -129,8 +144,6 @@
     </div>
 
 </div>
-
-<!-- TABELA -->
 
 <div class="glass rounded-3xl overflow-hidden">
 

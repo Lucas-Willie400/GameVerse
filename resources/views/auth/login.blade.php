@@ -313,7 +313,7 @@
 
                 <button
                     type="submit"
-                    class="w-full py-4 rounded-2xl font-bold text-lg bg-gradient-to- from-purple-600 to-fuchsia-600 hover:scale-105 transition-all duration-300 shadow-lg shadow-purple-500/30">
+                    class="w-full py-4 rounded-2xl font-bold text-lg bg-purple-600 hover:scale-105 transition-all duration-300 shadow-lg shadow-purple-500/30">
 
                     Entrar no Painel
 

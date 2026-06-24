@@ -23,7 +23,7 @@ class DesenvolvedorController extends Controller
     {
         Desenvolvedor::create($request->all());
 
-        return redirect()->route('desenvolvedores.index');
+        return redirect()->route('desenvolvedores.index')->with('created', "Desenvolvedor criado com sucesso");
     }
 
     public function edit(Desenvolvedor $desenvolvedore)
@@ -37,13 +37,13 @@ class DesenvolvedorController extends Controller
     {
         $desenvolvedore->update($request->all());
 
-        return redirect()->route('desenvolvedores.index');
+        return redirect()->route('desenvolvedores.index')->with('update', 'Desenvoledor editado com sucesso');
     }
 
     public function destroy(Desenvolvedor $desenvolvedore)
     {
         $desenvolvedore->delete();
 
-        return redirect()->route('desenvolvedores.index');
+        return redirect()->route('desenvolvedores.index')->with('sucess', 'Desenvolvedor deletado com sucesso');
     }
 }

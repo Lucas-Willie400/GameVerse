@@ -27,7 +27,7 @@ class TorneioController extends Controller
             'data_evento' => $request->data_evento,
         ]);
 
-        return redirect()->route('torneios.index');
+        return redirect()->route('torneios.index')->with('success', 'criado com sucesso');
     }
 
     public function edit(Torneio $torneio)
@@ -43,13 +43,13 @@ class TorneioController extends Controller
             'data_evento' => $request->data_evento,
         ]);
 
-        return redirect()->route('torneios.index');
+        return redirect()->route('torneios.index')->with('success', 'atualizado com sucesso');
     }
 
     public function destroy(Torneio $torneio)
     {
         $torneio->delete();
 
-        return redirect()->route('torneios.index');
+        return redirect()->route('torneios.index')->with('success', 'deletado com sucesso');
     }
 }

@@ -3,10 +3,34 @@
 @section('content')
 
 <div class="space-y-8">
+    @if(session('success'))
 
-```
-<!-- HEADER -->
+<div
+    id="toast-success"
+    class="glass border border-green-500/30 bg-green-500/10 rounded-2xl p-4 flex items-center gap-4 animate-pulse">
 
+    <div
+        class="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center">
+
+        <i class="fa-solid fa-circle-check text-green-400 text-xl"></i>
+
+    </div>
+
+    <div>
+
+        <h3 class="font-bold text-green-400">
+            Operação realizada com sucesso
+        </h3>
+
+        <p class="text-gray-300">
+            {{ session('success') }}
+        </p>
+
+    </div>
+
+</div>
+
+@endif
 <div class="flex flex-col lg:flex-row justify-between lg:items-center gap-6">
 
     <div>

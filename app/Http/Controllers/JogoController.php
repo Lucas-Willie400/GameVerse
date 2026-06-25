@@ -43,7 +43,7 @@ class JogoController extends Controller
             'preco' => $request->preco,
         ]);
 
-        return redirect()->route('jogos.index')->with('updated', 'Jogo atualizado com sucesso');
+        return redirect()->route('jogos.index')->with('success', 'Atualizado com sucesso');
     }
 
     public function destroy(Jogo $jogo)

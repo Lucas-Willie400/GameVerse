@@ -127,7 +127,7 @@
 
             <thead>
 
-                <tr class="bg-purple-900/50">
+                <tr class="bg-purple-800">
 
                     <th class="p-5 text-left">
                         Torneio
